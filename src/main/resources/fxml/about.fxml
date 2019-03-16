@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           xmlns="http://javafx.com/javafx"
+           stylesheets="/css/style.css"
+           styleClass="about"
+           minWidth="300"
+           minHeight="200">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <VBox alignment="CENTER" spacing="10">
+        <ImageView preserveRatio="true" fitHeight="100">
+            <Image url="/icon.png"/>
+        </ImageView>
+        <Label>Profiler v0.1.0</Label>
+        <Label>Egor Makarenko (c) 2019</Label>
+    </VBox>
+
+</StackPane>

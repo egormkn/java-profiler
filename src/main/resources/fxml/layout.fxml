@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      xmlns="http://javafx.com/javafx"
+      fx:controller="io.github.egormkn.profiler.Controller"
+      fx:id="root"
+      stylesheets="/css/style.css"
+      styleClass="layout"
+      minWidth="300"
+      minHeight="300">
+
+    <MenuBar fx:id="menu">
+        <Menu text="File">
+            <MenuItem text="Open" onAction="#open"/>
+            <!--<MenuItem text="Save" onAction="#save"/>-->
+            <SeparatorMenuItem/>
+            <MenuItem text="Exit" onAction="#exit"/>
+        </Menu>
+        <Menu text="Help">
+            <MenuItem text="About" onAction="#about"/>
+        </Menu>
+    </MenuBar>
+
+    <StackPane VBox.vgrow="ALWAYS">
+        <Label fx:id="placeholder">Please open the JAR file using "File" -> "Open"</Label>
+
+        <ProgressIndicator fx:id="progress" visible="false" maxWidth="100" maxHeight="100"/>
+
+        <VBox fx:id="loader" visible="false" spacing="15">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <HBox spacing="10" alignment="CENTER">
+                <Label>Main class:</Label>
+                <Label fx:id="mainClass"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button disable="true">Change</Button>
+                <Button defaultButton="true" onAction="#run">Run with Profiler</Button>
+            </HBox>
+            <Separator/>
+            <HBox spacing="10" alignment="CENTER">
+                <Label>Arguments:</Label>
+                <TextField fx:id="args" HBox.hgrow="ALWAYS"/>
+            </HBox>
+            <Separator/>
+            <Label>Please select packages and classes you would like to analyze:</Label>
+            <TreeView fx:id="packageTree" VBox.vgrow="ALWAYS"/>
+        </VBox>
+
+        <VBox fx:id="profiler" visible="false" spacing="15">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Label>Profiler output:</Label>
+            <TreeView fx:id="methodTree" VBox.vgrow="ALWAYS"/>
+        </VBox>
+
+    </StackPane>
+</VBox>
